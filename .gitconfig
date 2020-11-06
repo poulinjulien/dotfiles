@@ -1,10 +1,22 @@
 [alias]
 
+	co = checkout
+	ci = commit
+	st = status --short --branch --show-stash
+	br = branch --all
+	hist = log --pretty=format:'%C(auto)%h%C(reset) %C(cyan)%ad%C(reset) - %s%C(auto)%d%C(reset) [%C(magenta)%an%C(reset)]' --graph --date=short --all
+	type = cat-file -t
+	dump = cat-file -p
+	undo = reset --soft HEAD^
+	fp = fetch -p
+	ciane = commit --amend --no-edit
+	pf = reset --hard
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
 	# View the current working tree status using the short format.
-	s = status -s
+	s = status --short --branch --show-stash
 
 	# Show the diff between the latest commit and the current state.
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
